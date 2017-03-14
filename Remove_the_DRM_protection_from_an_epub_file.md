@@ -30,7 +30,7 @@ I tried with the info in sourcecode:
     It will create a file named adobekey_1.der in in the same directory as the script.
     This is your Adobe Digital Editions user key.
 
-But I had no luck with ActiveState and the I fall back to base python installation.
+But I had no luck with ActiveState Python and the I fall back to base python installation.
 
 I downloaded python-2.7.13.msi from here https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi
 
@@ -71,6 +71,9 @@ And get useful infos.
 
 # Links
   DeDRM_tools https://github.com/apprenticeharper/DeDRM_tools/tree/master/DeDRM_calibre_plugin
+
   Full Guide but OLD ( 2013 ) http://dikkiisdiatribe.blogspot.de/2013/01/how-to-get-round-drm-issues-with-e.html
+
   https://github.com/apprenticeharper/DeDRM_tools/blob/master/DeDRM_calibre_plugin/DeDRM_plugin_ReadMe.txt
+
   http://tech.kateva.org/2013/08/using-calibre-and-dedrm-plug-in-to.html
