@@ -1,3 +1,6 @@
+# Why Do I need to remove it?
+Because I want to read book legally borrowed from a library on the Amazon Kindle. Unfortunately it doesn't support ADE DRM content.
+
 # Install Adobe Digital Edition
 It requires wine
 ## Install wine and playonlinux and winetricks
