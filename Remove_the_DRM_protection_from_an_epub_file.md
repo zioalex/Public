@@ -30,7 +30,7 @@ I tried with the info in sourcecode:
     It will create a file named adobekey_1.der in in the same directory as the script.
     This is your Adobe Digital Editions user key.
 
-But I had no luck with ActiveState Python and the I fall back to base python installation.
+But I had no luck with ActiveState Python ( ActivePython-2.7.13.2713-win32-x86-401787.exe ) and the I fall back to base python installation.
 
 I downloaded python-2.7.13.msi from here https://www.python.org/ftp/python/2.7.13/python-2.7.13.msi
 
