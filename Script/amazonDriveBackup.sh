@@ -16,7 +16,7 @@ do
     tar jcf - ${cleansource} | gpg -q -e  > ${cleansource}.tar.bz2.gpg
     echo "Created Archive ${cleansource}.tar.bz2.gpg"
     cat $sample_img ${cleansource}.tar.bz2.gpg > ${cleansource}.tar.bz2.gpg.png && rm ${cleansource}.tar.bz2.gpg
-    rclone -q copy ${cleansource}.tar.bz2.gpg.png $rclonedest:Bilder/ && rm -f ${cleansource}.tar.bz2.gpg.png 
+    rclone -q --stats=30m copy ${cleansource}.tar.bz2.gpg.png $rclonedest:Bilder/ && rm -f ${cleansource}.tar.bz2.gpg.png 
     echo "End process of $i"
 done
 
