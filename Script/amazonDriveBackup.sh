@@ -26,7 +26,7 @@ do
     echo "Created Archive ${cleansource}.tar.bz2.gpg"
     # create splitted file with the prepend image
     cat $sample_img ${cleansource}.tar.bz2.gpg > ${cleansource}.tar.bz2.gpg.png && rm ${cleansource}.tar.bz2.gpg
-    rclone --drive-chunk-size=1024k --stats=30m copy ${cleansource}.tar.bz2.gpg.png $rclonedest:Bilder/ && rm -f ${cleansource}.tar.bz2.gpg.png 
+    rclone --retries 10 --drive-chunk-size=1024k --stats=30m copy ${cleansource}.tar.bz2.gpg.png $rclonedest:Bilder/ && rm -f ${cleansource}.tar.bz2.gpg.png 
     echo "End process of $i"
 done
 
