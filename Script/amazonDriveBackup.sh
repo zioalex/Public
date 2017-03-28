@@ -28,7 +28,9 @@ do
     cleansource=$(echo $i | sed 's/\///g')
     local_archive_info="${cleansource}_archive_info"
     [ ! -d $local_archive_info ] && mkdir $local_archive_info
-    tar jcf - ${cleansource} | gpg -q -e  > $backuptmpdir/${cleansource}.tar.bz2.gpg
+    echo "Create big archive"
+    tar --index-file=$local_archive_info/${cleansource}.tar.list jvcf - ${cleansource} | gpg -q -e  --output $backuptmpdir/${cleansource}.tar.bz2.gpg
+    # Check available space and exit if not > tar_size * 2
     echo "Created Archive $backuptmpdir/${cleansource}.tar.bz2.gpg"
     cd $backuptmpdir
     # Split gpg file
