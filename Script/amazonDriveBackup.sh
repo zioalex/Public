@@ -8,6 +8,7 @@ rclonedest=AmazonDrive
 sample_img=~/bin/index.png # 2035 bytes
 SPLIT_SIZE="1G"
 backuptmpdir="backuptmp.$$"
+rclone_opt="--bwlimit '8:00,150k 23:59,off'"
 
 [ ! -d $backuptmpdir ] && mkdir $backuptmpdir
 
@@ -29,7 +30,7 @@ do
     local_archive_info="${cleansource}_archive_info"
     [ ! -d $local_archive_info ] && mkdir $local_archive_info
     echo "Create big archive"
-    tar --index-file=$local_archive_info/${cleansource}.tar.list jvcf - ${cleansource} | gpg -q -e  --output $backuptmpdir/${cleansource}.tar.bz2.gpg
+    tar --index-file=$local_archive_info/${cleansource}.tar.list -jvcf - ${cleansource} | gpg -q -e  --output $backuptmpdir/${cleansource}.tar.bz2.gpg
     # Check available space and exit if not > tar_size * 2
     echo "Created Archive $backuptmpdir/${cleansource}.tar.bz2.gpg"
     cd $backuptmpdir
@@ -48,7 +49,7 @@ do
     cp $backuptmpdir/*.png.md5 $local_archive_info/
     ls -al $backuptmpdir/ > $local_archive_info/info.txt
     echo "Starting rcloning of $backuptmpdir - $i"
-    rclone --retries 10 --drive-chunk-size=1024k --stats=30m copy $backuptmpdir/ $rclonedest:Bilder/ && rm -f $backuptmpdir/${cleansource}.tar.bz2.gpg_*.png
+    rclone $rclone_opt --transfers 1 --retries 10 --drive-chunk-size=1024k --stats=30m copy $backuptmpdir/ $rclonedest:Bilder/ && rm -f $backuptmpdir/${cleansource}.tar.bz2.gpg_*.png
     echo "End process of $i"
 done
 
