@@ -8,7 +8,7 @@ rclonedest=AmazonDrive
 sample_img=~/bin/index.png # 2035 bytes
 SPLIT_SIZE="1G"
 backuptmpdir="backuptmp.$$"
-rclone_bwlimit="8:00,150k 23:59,off"
+rclone_bwlimit="08:00,150k 23:59,off"
 
 [ ! -d $backuptmpdir ] && mkdir $backuptmpdir
 
@@ -49,9 +49,9 @@ do
     cp $backuptmpdir/*.png.md5 $local_archive_info/
     ls -al $backuptmpdir/ > $local_archive_info/info.txt
     echo "Starting rcloning of $backuptmpdir - $i"
-    rclone --bwlimit "$rclone_bwlimit" --transfers 1 --retries 10 --drive-chunk-size=1024k --stats=30m copy $backuptmpdir/ $rclonedest:Bilder/ && rm -f $backuptmpdir/${cleansource}.tar.bz2.gpg_*.png || echo "Rclone failed - Splitted files not removed. Trigger it manually"
+	    rclone --bwlimit "$rclone_bwlimit" --transfers 1 --retries 10 --drive-chunk-size=1024k --stats=30m copy $backuptmpdir/ $rclonedest:Bilder/ && rm -f $backuptmpdir/${cleansource}.tar.bz2.gpg_*.png* || echo "Rclone failed - Splitted files not removed. Trigger it manually"
     echo "End process of $i"
 done
 
-# Clean up
+# Cleanup tmpdir if empty
 rmdir $backuptmpdir
