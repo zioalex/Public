@@ -4,6 +4,10 @@
 # dd if=file.png bs=2035 skip=1 of=test.tar.bz2.gpg
 # decrypt it with
 # gpg -d test.tar.bz2.gpg  |tar jtvf -
+
+# Catch SIGINT and SIGTERM
+trap "echo PLEASE DO NOT INTERRUPT ME!" SIGINT SIGTERM
+
 rclonedest=AmazonDrive
 sample_img=~/bin/index.png # 2035 bytes
 SPLIT_SIZE="1G"
