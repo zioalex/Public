@@ -1,3 +1,10 @@
+# Software Version
+Tested with calibre 2.78.0 on Gentoo
+Tested with calibre 3.3.0 on Sabayon
+
+Not working calibre 3.8.0 on Sabayon
+
+
 # Why Do I need to remove it?
 Because I want to read book legally borrowed from a library on the Amazon Kindle. Unfortunately it doesn't support ADE DRM content.
 
