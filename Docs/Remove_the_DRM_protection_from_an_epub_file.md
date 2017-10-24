@@ -76,6 +76,12 @@ If the conversion fail for any reason you can start calibre in debug mode:
     calibre-debug -g
 And get useful infos.
 
+# Problems
+It doesn't run properly on systems with multiple screens
+    
+    https://www.playonlinux.com/en/topic-15182.html
+    http://stackoverflow.com/questions/43612595/adobe-digital-edition-4-5-on-multiple-screens
+
 # Links
   DeDRM_tools https://github.com/apprenticeharper/DeDRM_tools/tree/master/DeDRM_calibre_plugin
 
