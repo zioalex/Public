@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=digitaleditions
+Comment=PlayOnLinux
+Type=Application
+Exec=/usr/share/playonlinux/playonlinux --run "digitaleditions" %F
+Icon=/home/alex/.PlayOnLinux//icones/full_size/digitaleditions
+Name[fr_FR]=digitaleditions
+StartupWMClass=digitaleditions.exe
+Categories=

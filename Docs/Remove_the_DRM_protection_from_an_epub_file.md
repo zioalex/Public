@@ -23,6 +23,9 @@ I solved it using the system wine installation ( v1.8.3 )
 Once installed you can start to use ADE. You need to create an account. Afterwards you will need to
 extract the key that will be used by the DeDRM tool.
 
+Follow the info here:
+	https://github.com/apprenticeharper/DeDRM_tools/blob/master/DeDRM_calibre_plugin/DeDRM_plugin_ReadMe.txt
+
 # Get the ADE key
 I tried with the info in sourcecode:
 
@@ -82,6 +85,19 @@ It doesn't run properly on systems with multiple screens
     https://www.playonlinux.com/en/topic-15182.html
     http://stackoverflow.com/questions/43612595/adobe-digital-edition-4-5-on-multiple-screens
 
+Playonlinux fail with 
+	
+	7f55c56c8000-7f55c56c9000 rw-p 00003000 08:08 434576                     /usr/lib64/libgmodule-2.0.so.0.5000.3/usr/share/playonlinux/bash/find_python: line 58:  3627 Aborted                 (core dumped) "$POL_PYTHON" "$POLDIR/python/check_python.py"
+	failed tests
+	Looking for python2.6... which: no python2.6 in (/usr/x86_64-pc-linux-gnu/gcc-bin/5.4.0:/usr/local/bin:/usr/bin:/bin:/opt/bin:/opt/nvidia-cg-toolkit/bin:/usr/games/bin)
+	
+	Looking for python2... 2.7.12 - wxversion(s): 3.0-gtk2, 2.8-gtk2-unicode
+	*** Error in `/usr/lib/python-exec/python2.7/python2': double free or corruption (out): 0x00007ffd403d1950 ***
+
+This can happen when you update gcc and not all the reverse dependencies had been update! Solve it with:
+
+	revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc
+
 # Links
   DeDRM_tools https://github.com/apprenticeharper/DeDRM_tools/tree/master/DeDRM_calibre_plugin
 
@@ -90,3 +106,34 @@ It doesn't run properly on systems with multiple screens
   https://github.com/apprenticeharper/DeDRM_tools/blob/master/DeDRM_calibre_plugin/DeDRM_plugin_ReadMe.txt
 
   http://tech.kateva.org/2013/08/using-calibre-and-dedrm-plug-in-to.html
+
+
+
+Install a new 32bit env - called ADE
+Install msfont
+Install .net 4.0 -  Failed no message
+Install .net 4.5 -> start installation .net from 2.0
+3.0 not found -> continuing with 3.1SP
+
+
+install msfont
+.net 3.0 -> will install .net 2.0 -> 2.0 SP1 -> 2.0 SP2
+3.0 Failed to download -Download manually from filehippo and run manual installation
+
+######### Install on the system wine
+New clean startup
+rm ~/.Playonlinux
+rm ~/.local/share/wineprefix 
+
+.net 3.0 -> will install .net 2.0 -> 2.0 SP1 -> 2.0 SP2
+3.0 Failed to download -Download manually from filehippo and run manual installation -->Failed to install 
+Try with winetricks
+
+WINEPREFIX=~/.PlayOnLinux/wineprefix/ADE5/ winetricks
+
+# tried removing lib file
+# https://bbs.archlinux.org/viewtopic.php?pid=1700283#p1700283
+rm -f ~/.PlayOnLinux/wine/linux*/*/lib*/libz*
+
+USE Adobe Digital Edition 1.7
+https://www.lehmanns.de/page/ebookadealt
