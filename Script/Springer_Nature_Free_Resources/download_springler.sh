@@ -8,6 +8,8 @@ BOOK_AUTHOR_IDX=${5:-2}
 BOOK_YEAR_IDX=${6:-5}
 
 
+TMP_FILE=$$.tmp
+
 download_pdf() {
     url=${1}
     title=$(sanitize_string "${2}")
@@ -35,17 +37,24 @@ parse_download_links() {
     author_idx="${5}"
     year_idx="${6}"
 
-    tail -n +${input_file_content_start_line} "${input_file}" | awk -F';' "{print \$${url_column_index}\";\"\$${title_idx}\";\"\$${author_idx}\";\"\$${year_idx}}"
+    tail -n +${input_file_content_start_line} "${input_file}" | awk -F';' "{print \$${url_column_index}\";\"\$${title_idx}\";\"\$${author_idx}\";\"\$${year_idx}}" > $TMP_FILE
 }
 
+cleanp() {
+  rm -f $TMP_FILE
+}
+
+
 main() {
-  parse_download_links "${1}" "${2}" "${3}" "${4}" "${5}" "${6}"
-    for var_packed in "$(parse_download_links "${1}" "${2}" "${3}" "${4}" "${5}" "${6}")"; do
+    parse_download_links "${1}" "${2}" "${3}" "${4}" "${5}" "${6}"
+    while read var_packed
+    do
         IFS=";" read url title author year <<< "${var_packed}"
         echo $var_packed
         echo "VARS" $url, $title, $author, $year
         download_pdf "${url}" "${title}" "${author}" "${year}"
-    done
+      done < $TMP_FILE
+    cleanp
 }
 
 
