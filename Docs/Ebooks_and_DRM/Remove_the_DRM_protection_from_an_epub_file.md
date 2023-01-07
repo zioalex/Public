@@ -51,12 +51,21 @@ After downloaded
 
 https://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjku8CX6NbSAhXLERQKHQocA4UQFggcMAA&url=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fdownload%2Fdetails.aspx%3Fid%3D44266&usg=AFQjCNGcLCiv_suv67XLcfGWw-Wi2xFRKQ&sig2=xwm8wetGu-BhfEXvMb802g
 
+You can download the VC for python from https://web.archive.org/web/20210106040224/https://download.microsoft.com/download/7/9/6/796EF2E4-801B-4FC4-AB28-B59FBF6D907B/VCForPython27.msi
+
+
 and installed I retried to install the pycrypto library:
 
     pip install pycrypto
 
 This time I installed it with success; then I continued to follow the above instruction to get the .der file.
 
+In the file https://raw.githubusercontent.com/apprenticeharper/DeDRM_tools/master/Other_Tools/DRM_Key_Scripts/Adobe_Digital_Editions/adobekey.pyw
+
+I needed to change the winreg import as follow:
+
+    import _winreg as winreg 
+    
 # Install linux ebook reader
 
     emerge -av calibre
