@@ -4,7 +4,19 @@ Tested with calibre 3.3.0 on Sabayon
 
 Not working calibre 3.8.0 on Sabayon
 
+## Updates 2025.04.30
+On ubuntu 24.04 when you try to open an epub file the viewer crash:
 
+	calibre, version 5.32.0
+	ERROR: Render process crashed: The Qt WebEngine Render process has crashed. You should try restarting the viewer
+
+The solution is to use an updated calibre version. If you are up to you can use the xtradeb ppa:
+
+	sudo add-apt-repository ppa:xtradeb/apps -y
+	apt install calibre
+
+See https://xtradeb.net/
+	
 # Why Do I need to remove it?
 Because I want to read book legally borrowed from a library on the Amazon Kindle. Unfortunately it doesn't support ADE DRM content.
 
@@ -12,7 +24,13 @@ Because I want to read book legally borrowed from a library on the Amazon Kindle
 It requires wine
 ## Install wine and playonlinux and winetricks
 
-    emerge -av playonlinux winetricks
+* On Gentoo
+
+    sudo emerge -av playonlinux winetricks # Not tested lately.
+
+* On Ubuntu
+
+    sudo apt install playonlinux winetricks python3-pyasyncore
 
 After PlayOnLinux installation run it and through the gui install Adobe Digital Edition 4.5 (ADE)
 
@@ -25,6 +43,12 @@ extract the key that will be used by the DeDRM tool.
 
 Follow the info here:
 	https://github.com/apprenticeharper/DeDRM_tools/blob/master/DeDRM_calibre_plugin/DeDRM_plugin_ReadMe.txt
+
+# Update 2025.04.30
+If you have already completed the installation and configuration of both Calibre and ADE they will survive an OS update. Everything work again after updating from Ubuntu 20.04 to 24.04.
+
+- Calibre must be updated as outlined above
+- The DeDRM plugin must be updated. https://github.com/noDRM/DeDRM_tools/releases/download/v10.0.9/DeDRM_tools_10.0.9.zip works with Calibre 8.3
 
 # Get the ADE key
 I tried with the info in sourcecode:
