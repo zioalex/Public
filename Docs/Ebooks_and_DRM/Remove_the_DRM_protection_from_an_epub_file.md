@@ -44,6 +44,12 @@ extract the key that will be used by the DeDRM tool.
 Follow the info here:
 	https://github.com/apprenticeharper/DeDRM_tools/blob/master/DeDRM_calibre_plugin/DeDRM_plugin_ReadMe.txt
 
+# Update 2025.04.30
+If you have already completed the installation and configuration of both Calibre and ADE they will survive an OS update. Everything work again after updating from Ubuntu 20.04 to 24.04.
+
+- Calibre must be updated as outlined above
+- The DeDRM plugin must be updated. https://github.com/noDRM/DeDRM_tools/releases/download/v10.0.9/DeDRM_tools_10.0.9.zip works with Calibe 8.3
+
 # Get the ADE key
 I tried with the info in sourcecode:
 
