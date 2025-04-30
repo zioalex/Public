@@ -48,7 +48,7 @@ Follow the info here:
 If you have already completed the installation and configuration of both Calibre and ADE they will survive an OS update. Everything work again after updating from Ubuntu 20.04 to 24.04.
 
 - Calibre must be updated as outlined above
-- The DeDRM plugin must be updated. https://github.com/noDRM/DeDRM_tools/releases/download/v10.0.9/DeDRM_tools_10.0.9.zip works with Calibe 8.3
+- The DeDRM plugin must be updated. https://github.com/noDRM/DeDRM_tools/releases/download/v10.0.9/DeDRM_tools_10.0.9.zip works with Calibre 8.3
 
 # Get the ADE key
 I tried with the info in sourcecode:
