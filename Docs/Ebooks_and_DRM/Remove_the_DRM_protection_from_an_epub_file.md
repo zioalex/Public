@@ -10,7 +10,7 @@ On ubuntu 24.04 when you try to open an epub file the viewer crash:
 	calibre, version 5.32.0
 	ERROR: Render process crashed: The Qt WebEngine Render process has crashed. You should try restarting the viewer
 
-The solution it to use an updated calibre version. If you are up to you can use the xtradeb ppa:
+The solution is to use an updated calibre version. If you are up to you can use the xtradeb ppa:
 
 	sudo add-apt-repository ppa:xtradeb/apps -y
 	apt install calibre
